@@ -12,6 +12,8 @@
 		4052320928FD0CE70081CCD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4052320728FD0CE70081CCD7 /* LaunchScreen.storyboard */; };
 		4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321428FD0FF10081CCD7 /* LoginViewController.swift */; };
 		4052321728FD10810081CCD7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321628FD10810081CCD7 /* LoginView.swift */; };
+		40587EEB28FD642500996EF9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40587EEA28FD642500996EF9 /* Question.swift */; };
+		40587EED28FD643D00996EF9 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40587EEC28FD643D00996EF9 /* QuizBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		4052320A28FD0CE70081CCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4052321428FD0FF10081CCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4052321628FD10810081CCD7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		40587EEA28FD642500996EF9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		40587EEC28FD643D00996EF9 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 		4052321328FD0F550081CCD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				40587EEA28FD642500996EF9 /* Question.swift */,
+				40587EEC28FD643D00996EF9 /* QuizBrain.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -166,7 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40587EED28FD643D00996EF9 /* QuizBrain.swift in Sources */,
 				4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */,
+				40587EEB28FD642500996EF9 /* Question.swift in Sources */,
 				4052321728FD10810081CCD7 /* LoginView.swift in Sources */,
 				405231FD28FD0CE60081CCD7 /* AppDelegate.swift in Sources */,
 			);
