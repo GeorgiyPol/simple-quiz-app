@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         
         setupHierarchy()
         setupLayout()
+        setupView()
     }
     
     private func setupHierarchy() {
@@ -33,5 +34,9 @@ class LoginViewController: UIViewController {
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
         ])
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .systemTeal
     }
 }

@@ -60,12 +60,12 @@ class LoginView: UIView {
         stackView.addArrangedSubview(userNameTextField)
         stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
-        
         addSubview(stackView)
     }
     
     private func setupLayout() {
         
+        //stackView
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
@@ -80,7 +80,6 @@ class LoginView: UIView {
     }
     
     private func setupView() {
-        
         backgroundColor = .secondarySystemBackground
     }
 }
