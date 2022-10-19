@@ -7,22 +7,7 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate: AnyObject {
-    
-    func didLogin()
-}
-
 class LoginView: UIView {
-    
-    var username: String? {
-        return userNameTextField.text
-    }
-    
-    var password: String? {
-        return passwordTextField.text
-    }
-    
-    weak var delegate: LoginViewControllerDelegate?
     
     private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
