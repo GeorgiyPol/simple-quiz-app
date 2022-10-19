@@ -10,33 +10,19 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    let loginView = LoginView()
+    private var myMainView: LoginView? {
+        guard isViewLoaded else { return nil }
+        return view as? LoginView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupHierarchy()
-        setupLayout()
-        setupView()
     }
     
-    private func setupHierarchy() {
-    
-        view.addSubview(loginView)
-    }
-    
-    private func setupLayout() {
-        loginView.translatesAutoresizingMaskIntoConstraints = false
-
-        // loginView
-        NSLayoutConstraint.activate([
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
-        ])
-    }
-    
-    private func setupView() {
-        view.backgroundColor = .systemTeal
+    override func loadView() {
+        view = LoginView()
     }
 }
+
+

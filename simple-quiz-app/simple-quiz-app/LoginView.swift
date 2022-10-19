@@ -7,13 +7,30 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    
+    func didLogin()
+}
+
 class LoginView: UIView {
+    
+    var username: String? {
+        return userNameTextField.text
+    }
+    
+    var password: String? {
+        return passwordTextField.text
+    }
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 1
+        stackView.layer.cornerRadius = 5
+        stackView.clipsToBounds = true
         return stackView
     }()
     
@@ -21,6 +38,8 @@ class LoginView: UIView {
         var userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "Username"
+        userNameTextField.font = .systemFont(ofSize: 15)
+        userNameTextField.backgroundColor = .white
         
         return userNameTextField
     }()
@@ -29,24 +48,77 @@ class LoginView: UIView {
         var passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
+        passwordTextField.font = .systemFont(ofSize: 15)
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.backgroundColor = .white
         return passwordTextField
     }()
     
     private lazy var dividerView: UIView = {
         var dividerView = UIView()
         dividerView.translatesAutoresizingMaskIntoConstraints = false
-        dividerView.backgroundColor = .secondarySystemFill
+        dividerView.layer.cornerRadius = 5
         return dividerView
     }()
     
+    private lazy var subtitleLabel: UILabel = {
+        var subtitleLabel = UILabel()
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        subtitleLabel.adjustsFontForContentSizeCategory = true
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.text = "The classic form of authorization."
+        subtitleLabel.textColor = UIColor.blackColor
+        return subtitleLabel
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        var titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.text = "Sign In Form"
+        titleLabel.textColor = UIColor.blackColor
+        return titleLabel
+    }()
+    
+    private lazy var imageLogo: UIImageView = {
+        var imageLogo = UIImageView()
+        imageLogo.image = UIImage(systemName: "person.crop.circle.fill")
+        imageLogo.translatesAutoresizingMaskIntoConstraints = false
+        imageLogo.tintColor = .white
+        return imageLogo
+    }()
+    
+    private lazy var signInButton: UIButton = {
+        var signInButton = UIButton(type: .system)
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.configuration = .filled()
+        signInButton.configuration?.imagePadding = 8
+        signInButton.setTitle("Sign in", for: [])
+        signInButton.tintColor = .blackColor
+        signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
+        return signInButton
+    }()
+   
+    private lazy var errorMessageLabel: UILabel = {
+        var errorMessageLabel = UILabel()
+        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageLabel.textAlignment = .center
+        errorMessageLabel.textColor = .white
+        errorMessageLabel.numberOfLines = 1
+        errorMessageLabel.isHidden = false
+        return errorMessageLabel
+    }()
+
     override init(frame: CGRect) {
         super .init(frame: frame)
         
         setupHierarchy()
         setupLayout()
         setupView()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -61,25 +133,60 @@ class LoginView: UIView {
         stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
         addSubview(stackView)
+        addSubview(subtitleLabel)
+        addSubview(titleLabel)
+        addSubview(imageLogo)
+        addSubview(signInButton)
+        addSubview(errorMessageLabel)
+        
     }
     
     private func setupLayout() {
         
-        //stackView
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
-            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
-            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
-            bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
-        ])
-        
-        dividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 6),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 6),
+            
+            userNameTextField.heightAnchor.constraint(equalToConstant: 35),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 35),
 
-        layer.cornerRadius = 5
-        clipsToBounds = true
+            dividerView.heightAnchor.constraint(equalToConstant: 1),
+            
+            stackView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
+            subtitleLabel.widthAnchor.constraint(equalTo: widthAnchor),
+            
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            
+            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: imageLogo.leadingAnchor, multiplier: 5),
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: imageLogo.bottomAnchor, multiplier: 4),
+            
+            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 4),
+            signInButton.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 6),
+            signInButton.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            
+            errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
+            errorMessageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
     
     private func setupView() {
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = UIColor.tealColor
     }
+}
+
+extension UIColor {
+    
+    static var tealColor: UIColor  { return UIColor(red: 0/255, green: 171/255, blue: 179/255, alpha: 1) }
+    static var blackColor: UIColor  { return UIColor(red: 60/255, green: 64/255, blue: 72/255, alpha: 1) }
+    static var greyColor: UIColor  { return UIColor(red: 178/255, green: 178/255, blue: 178/255, alpha: 1) }
+    static var spaceColor: UIColor  { return UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1) }
+}
+
+extension LoginView {
+    
+    @objc private func signInTapped() {}
 }
