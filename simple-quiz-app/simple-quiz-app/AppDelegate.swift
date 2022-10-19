@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
     let testVC = TestViewController()
     let loginVC = LoginViewController()
     
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        loginVC.delegate = self
+        LoginViewController.delegate = self
         window?.rootViewController = LoginViewController()
         
         return true

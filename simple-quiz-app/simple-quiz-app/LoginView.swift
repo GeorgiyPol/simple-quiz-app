@@ -85,7 +85,7 @@ class LoginView: UIView {
         signInButton.configuration?.imagePadding = 8
         signInButton.setTitle("Sign in", for: [])
         signInButton.tintColor = .blackColor
-        signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
         return signInButton
     }()
    

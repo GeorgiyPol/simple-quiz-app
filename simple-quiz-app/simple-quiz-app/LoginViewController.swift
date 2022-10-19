@@ -28,10 +28,11 @@ class LoginViewController: UIViewController {
         return myMainView?.passwordTextField.text
     }
     
-    weak var delegate: LoginViewControllerDelegate?
+    static var delegate: LoginViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         myMainView?.signInAction = signInPressed
     }
@@ -49,7 +50,7 @@ extension LoginViewController {
         login()
     }
     
-    private func login() {
+     func login() {
         
         guard let username = username, let password = password else {
             assertionFailure("Username / password should never be nil")
@@ -64,7 +65,7 @@ extension LoginViewController {
         
         if username == UserData.userData.userLogin && password == UserData.userData.userPassword {
             myMainView?.signInButton.configuration?.showsActivityIndicator = true
-            delegate?.didLogin()
+            LoginViewController.delegate?.didLogin()
             myMainView?.errorMessageLabel.text = ""
         } else {
             myMainView?.signInButton.configuration?.showsActivityIndicator = false
