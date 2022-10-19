@@ -21,17 +21,16 @@ class LoginView: UIView {
         return stackView
     }()
     
-    lazy var userNameTextField: UITextField = {
+    var userNameTextField: UITextField = {
         var userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "Username"
         userNameTextField.font = .systemFont(ofSize: 15)
         userNameTextField.backgroundColor = .white
-        
         return userNameTextField
     }()
     
-    private lazy var passwordTextField: UITextField = {
+    var passwordTextField: UITextField = {
         var passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
@@ -79,7 +78,7 @@ class LoginView: UIView {
         return imageLogo
     }()
     
-    private lazy var signInButton: UIButton = {
+    lazy var signInButton: UIButton = {
         var signInButton = UIButton(type: .system)
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.configuration = .filled()
@@ -90,7 +89,7 @@ class LoginView: UIView {
         return signInButton
     }()
    
-    private lazy var errorMessageLabel: UILabel = {
+    var errorMessageLabel: UILabel = {
         var errorMessageLabel = UILabel()
         errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         errorMessageLabel.textAlignment = .center

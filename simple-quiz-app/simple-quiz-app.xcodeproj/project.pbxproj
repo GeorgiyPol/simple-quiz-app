@@ -12,6 +12,7 @@
 		4052320928FD0CE70081CCD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4052320728FD0CE70081CCD7 /* LaunchScreen.storyboard */; };
 		4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321428FD0FF10081CCD7 /* LoginViewController.swift */; };
 		4052321728FD10810081CCD7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321628FD10810081CCD7 /* LoginView.swift */; };
+		40E1940C28FFD1E300471660 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1940B28FFD1E300471660 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4052320A28FD0CE70081CCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4052321428FD0FF10081CCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4052321628FD10810081CCD7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		40E1940B28FFD1E300471660 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		405231FB28FD0CE60081CCD7 /* simple-quiz-app */ = {
 			isa = PBXGroup;
 			children = (
+				40E1940A28FFD1D800471660 /* Model */,
 				4052321228FD0F500081CCD7 /* View */,
 				4052321128FD0F310081CCD7 /* Controller */,
 				4052321028FD0F250081CCD7 /* Files */,
@@ -86,6 +89,14 @@
 				4052321628FD10810081CCD7 /* LoginView.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		40E1940A28FFD1D800471660 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40E1940B28FFD1E300471660 /* UserData.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			files = (
 				4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */,
 				4052321728FD10810081CCD7 /* LoginView.swift in Sources */,
+				40E1940C28FFD1E300471660 /* UserData.swift in Sources */,
 				405231FD28FD0CE60081CCD7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

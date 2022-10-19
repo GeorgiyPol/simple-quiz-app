@@ -14,6 +14,14 @@ class LoginViewController: UIViewController {
         guard isViewLoaded else { return nil }
         return view as? LoginView
     }
+    
+    var username: String? {
+        return myMainView?.userNameTextField.text
+    }
+    
+    var password: String? {
+        return myMainView?.passwordTextField.text
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +37,37 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     
-    func signInPressed() {
+    private func signInPressed() {
+                    
+        myMainView?.errorMessageLabel.isEnabled = true
+        login()
+    }
+    
+    private func login() {
         
-        print("Button 'Sign In' is Tapped!" )
+        guard let username = username, let password = password else {
+            assertionFailure("Username / password should never be nil")
+            return
+        }
+        
+        if username.isEmpty || password.isEmpty {
+            configureView(withMessage: "Username / password cannot be empty")
+            myMainView?.signInButton.configuration?.showsActivityIndicator = false
+            return
+        }
+        
+        if username == UserData.userData.userLogin && password == UserData.userData.userPassword {
+            myMainView?.signInButton.configuration?.showsActivityIndicator = true
+            //delegate?.didLogin()
+            myMainView?.errorMessageLabel.text = ""
+        } else {
+            myMainView?.signInButton.configuration?.showsActivityIndicator = false
+            configureView(withMessage: "Incorrect username / password")
+        }
+    }
+    
+    private func configureView(withMessage message: String) {
+        myMainView?.errorMessageLabel.isHidden = false
+        myMainView?.errorMessageLabel.text = message
     }
 }
