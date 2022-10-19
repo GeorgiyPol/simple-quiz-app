@@ -9,6 +9,8 @@ import UIKit
 
 class LoginView: UIView {
     
+    var signInAction: (() -> Void?)?
+    
     private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +21,7 @@ class LoginView: UIView {
         return stackView
     }()
     
-    private lazy var userNameTextField: UITextField = {
+    lazy var userNameTextField: UITextField = {
         var userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "Username"
@@ -84,7 +86,7 @@ class LoginView: UIView {
         signInButton.configuration?.imagePadding = 8
         signInButton.setTitle("Sign in", for: [])
         signInButton.tintColor = .blackColor
-        signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
+        signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
         return signInButton
     }()
    
@@ -173,5 +175,7 @@ extension UIColor {
 
 extension LoginView {
     
-    @objc private func signInTapped() {}
+    @objc private func signInTapped() {
+        signInAction?()
+    }
 }

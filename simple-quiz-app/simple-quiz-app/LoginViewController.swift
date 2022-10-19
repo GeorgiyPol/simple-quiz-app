@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myMainView?.signInAction = signInPressed
+        
     }
     
     override func loadView() {
@@ -25,4 +27,10 @@ class LoginViewController: UIViewController {
     }
 }
 
-
+extension LoginViewController {
+    
+    func signInPressed() {
+        
+        print("Button 'Sign In' is Tapped!" )
+    }
+}
