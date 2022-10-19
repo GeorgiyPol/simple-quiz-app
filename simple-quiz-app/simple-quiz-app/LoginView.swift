@@ -77,6 +77,16 @@ class LoginView: UIView {
         return imageLogo
     }()
     
+    private lazy var signInButton: UIButton = {
+        var signInButton = UIButton(type: .system)
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.configuration = .filled()
+        signInButton.configuration?.imagePadding = 8
+        signInButton.setTitle("Sign in", for: [])
+        signInButton.tintColor = .blackColor
+        return signInButton
+    }()
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         
@@ -100,6 +110,7 @@ class LoginView: UIView {
         addSubview(subtitleLabel)
         addSubview(titleLabel)
         addSubview(imageLogo)
+        addSubview(signInButton)
     }
     
     private func setupLayout() {
@@ -122,9 +133,12 @@ class LoginView: UIView {
             subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
             
             titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: imageLogo.leadingAnchor, multiplier: 5),
-            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: imageLogo.bottomAnchor, multiplier: 4)
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: imageLogo.bottomAnchor, multiplier: 4),
+            
+            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 4),
+            signInButton.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 6),
+            signInButton.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ])
-        
     }
     
     private func setupView() {
