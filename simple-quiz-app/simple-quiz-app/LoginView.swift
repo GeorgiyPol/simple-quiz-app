@@ -86,7 +86,17 @@ class LoginView: UIView {
         signInButton.tintColor = .blackColor
         return signInButton
     }()
-    
+   
+    private lazy var errorMessageLabel: UILabel = {
+        var errorMessageLabel = UILabel()
+        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageLabel.textAlignment = .center
+        errorMessageLabel.textColor = .systemRed
+        errorMessageLabel.numberOfLines = 1
+        errorMessageLabel.isHidden = false
+        return errorMessageLabel
+    }()
+
     override init(frame: CGRect) {
         super .init(frame: frame)
         
@@ -111,6 +121,8 @@ class LoginView: UIView {
         addSubview(titleLabel)
         addSubview(imageLogo)
         addSubview(signInButton)
+        addSubview(errorMessageLabel)
+        
     }
     
     private func setupLayout() {
@@ -137,7 +149,11 @@ class LoginView: UIView {
             
             signInButton.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 4),
             signInButton.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 6),
-            signInButton.widthAnchor.constraint(equalTo: stackView.widthAnchor)
+            signInButton.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            
+            errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
+            errorMessageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
