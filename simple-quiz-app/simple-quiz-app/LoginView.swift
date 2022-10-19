@@ -69,6 +69,14 @@ class LoginView: UIView {
         return titleLabel
     }()
     
+    private lazy var imageLogo: UIImageView = {
+        var imageLogo = UIImageView()
+        imageLogo.image = UIImage(systemName: "person.crop.circle.fill")
+        imageLogo.translatesAutoresizingMaskIntoConstraints = false
+        imageLogo.tintColor = .white
+        return imageLogo
+    }()
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         
@@ -91,6 +99,7 @@ class LoginView: UIView {
         addSubview(stackView)
         addSubview(subtitleLabel)
         addSubview(titleLabel)
+        addSubview(imageLogo)
     }
     
     private func setupLayout() {
@@ -110,7 +119,10 @@ class LoginView: UIView {
             subtitleLabel.widthAnchor.constraint(equalTo: widthAnchor),
             
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3)
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            
+            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: imageLogo.leadingAnchor, multiplier: 5),
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: imageLogo.bottomAnchor, multiplier: 4)
         ])
         
     }
