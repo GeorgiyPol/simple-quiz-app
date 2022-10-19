@@ -12,8 +12,6 @@
 		4052320928FD0CE70081CCD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4052320728FD0CE70081CCD7 /* LaunchScreen.storyboard */; };
 		4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321428FD0FF10081CCD7 /* LoginViewController.swift */; };
 		4052321728FD10810081CCD7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321628FD10810081CCD7 /* LoginView.swift */; };
-		40587EEB28FD642500996EF9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40587EEA28FD642500996EF9 /* Question.swift */; };
-		40587EED28FD643D00996EF9 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40587EEC28FD643D00996EF9 /* QuizBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +22,6 @@
 		4052320A28FD0CE70081CCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4052321428FD0FF10081CCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4052321628FD10810081CCD7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		40587EEA28FD642500996EF9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		40587EEC28FD643D00996EF9 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +54,6 @@
 		405231FB28FD0CE60081CCD7 /* simple-quiz-app */ = {
 			isa = PBXGroup;
 			children = (
-				4052321328FD0F550081CCD7 /* Model */,
 				4052321228FD0F500081CCD7 /* View */,
 				4052321128FD0F310081CCD7 /* Controller */,
 				4052321028FD0F250081CCD7 /* Files */,
@@ -91,15 +86,6 @@
 				4052321628FD10810081CCD7 /* LoginView.swift */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		4052321328FD0F550081CCD7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				40587EEA28FD642500996EF9 /* Question.swift */,
-				40587EEC28FD643D00996EF9 /* QuizBrain.swift */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,9 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40587EED28FD643D00996EF9 /* QuizBrain.swift in Sources */,
 				4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */,
-				40587EEB28FD642500996EF9 /* Question.swift in Sources */,
 				4052321728FD10810081CCD7 /* LoginView.swift in Sources */,
 				405231FD28FD0CE60081CCD7 /* AppDelegate.swift in Sources */,
 			);
@@ -324,6 +308,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,6 +336,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
