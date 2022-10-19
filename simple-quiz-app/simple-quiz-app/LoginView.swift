@@ -13,7 +13,9 @@ class LoginView: UIView {
         var stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 1
+        stackView.layer.cornerRadius = 5
+        stackView.clipsToBounds = true
         return stackView
     }()
     
@@ -21,7 +23,8 @@ class LoginView: UIView {
         var userNameTextField = UITextField()
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "Username"
-        
+        userNameTextField.font = .systemFont(ofSize: 15)
+        userNameTextField.backgroundColor = .white
         return userNameTextField
     }()
     
@@ -29,15 +32,29 @@ class LoginView: UIView {
         var passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
+        passwordTextField.font = .systemFont(ofSize: 15)
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.backgroundColor = .white
         return passwordTextField
     }()
     
     private lazy var dividerView: UIView = {
         var dividerView = UIView()
         dividerView.translatesAutoresizingMaskIntoConstraints = false
-        dividerView.backgroundColor = .secondarySystemFill
+        dividerView.layer.cornerRadius = 5
         return dividerView
+    }()
+    
+    private lazy var subtitleLabel: UILabel = {
+        var subtitleLabel = UILabel()
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        subtitleLabel.adjustsFontForContentSizeCategory = true
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.text = "The classic form of authorization."
+        subtitleLabel.textColor = UIColor.blackColor
+        return subtitleLabel
     }()
     
     override init(frame: CGRect) {
@@ -46,7 +63,6 @@ class LoginView: UIView {
         setupHierarchy()
         setupLayout()
         setupView()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -61,25 +77,37 @@ class LoginView: UIView {
         stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
         addSubview(stackView)
+        addSubview(subtitleLabel)
     }
     
     private func setupLayout() {
         
-        //stackView
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
-            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
-            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
-            bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
+            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 4),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 4),
+            
+            userNameTextField.heightAnchor.constraint(equalToConstant: 35),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 35),
+
+            dividerView.heightAnchor.constraint(equalToConstant: 1),
+            
+            stackView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
+            subtitleLabel.widthAnchor.constraint(equalTo: widthAnchor)
         ])
         
-        dividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-
-        layer.cornerRadius = 5
-        clipsToBounds = true
     }
     
     private func setupView() {
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = UIColor.tealColor
     }
+}
+
+extension UIColor {
+    
+    static var tealColor: UIColor  { return UIColor(red: 0/255, green: 171/255, blue: 179/255, alpha: 1) }
+    static var blackColor: UIColor  { return UIColor(red: 60/255, green: 64/255, blue: 72/255, alpha: 1) }
+    static var greyColor: UIColor  { return UIColor(red: 178/255, green: 178/255, blue: 178/255, alpha: 1) }
+    static var spaceColor: UIColor  { return UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1) }
 }
