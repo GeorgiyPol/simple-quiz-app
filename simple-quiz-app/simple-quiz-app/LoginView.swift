@@ -7,7 +7,22 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    
+    func didLogin()
+}
+
 class LoginView: UIView {
+    
+    var username: String? {
+        return userNameTextField.text
+    }
+    
+    var password: String? {
+        return passwordTextField.text
+    }
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
@@ -84,6 +99,7 @@ class LoginView: UIView {
         signInButton.configuration?.imagePadding = 8
         signInButton.setTitle("Sign in", for: [])
         signInButton.tintColor = .blackColor
+        signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
         return signInButton
     }()
    
@@ -91,7 +107,7 @@ class LoginView: UIView {
         var errorMessageLabel = UILabel()
         errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         errorMessageLabel.textAlignment = .center
-        errorMessageLabel.textColor = .systemRed
+        errorMessageLabel.textColor = .white
         errorMessageLabel.numberOfLines = 1
         errorMessageLabel.isHidden = false
         return errorMessageLabel
@@ -168,4 +184,9 @@ extension UIColor {
     static var blackColor: UIColor  { return UIColor(red: 60/255, green: 64/255, blue: 72/255, alpha: 1) }
     static var greyColor: UIColor  { return UIColor(red: 178/255, green: 178/255, blue: 178/255, alpha: 1) }
     static var spaceColor: UIColor  { return UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1) }
+}
+
+extension LoginView {
+    
+    @objc private func signInTapped() {}
 }
