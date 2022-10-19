@@ -25,6 +25,7 @@ class LoginView: UIView {
         userNameTextField.placeholder = "Username"
         userNameTextField.font = .systemFont(ofSize: 15)
         userNameTextField.backgroundColor = .white
+        
         return userNameTextField
     }()
     
@@ -57,6 +58,17 @@ class LoginView: UIView {
         return subtitleLabel
     }()
     
+    private lazy var titleLabel: UILabel = {
+        var titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.text = "Sign In Form"
+        titleLabel.textColor = UIColor.blackColor
+        return titleLabel
+    }()
+    
     override init(frame: CGRect) {
         super .init(frame: frame)
         
@@ -78,6 +90,7 @@ class LoginView: UIView {
         stackView.addArrangedSubview(passwordTextField)
         addSubview(stackView)
         addSubview(subtitleLabel)
+        addSubview(titleLabel)
     }
     
     private func setupLayout() {
@@ -85,8 +98,8 @@ class LoginView: UIView {
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 4),
-            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 4),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 6),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 6),
             
             userNameTextField.heightAnchor.constraint(equalToConstant: 35),
             passwordTextField.heightAnchor.constraint(equalToConstant: 35),
@@ -94,7 +107,10 @@ class LoginView: UIView {
             dividerView.heightAnchor.constraint(equalToConstant: 1),
             
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
-            subtitleLabel.widthAnchor.constraint(equalTo: widthAnchor)
+            subtitleLabel.widthAnchor.constraint(equalTo: widthAnchor),
+            
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3)
         ])
         
     }
