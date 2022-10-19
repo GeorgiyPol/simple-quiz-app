@@ -11,8 +11,8 @@ struct UserData {
     
     static let userData = UserData()
     
-    let userLogin = "User"
-    let userPassword = "123"
+    let userLogin = "1"
+    let userPassword = "1"
     
     private init() { }
 }

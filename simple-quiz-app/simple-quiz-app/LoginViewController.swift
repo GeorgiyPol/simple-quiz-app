@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    
+    func didLogin()
+}
+
 class LoginViewController: UIViewController {
     
     private var myMainView: LoginView? {
@@ -22,12 +27,13 @@ class LoginViewController: UIViewController {
     var password: String? {
         return myMainView?.passwordTextField.text
     }
+    
+    weak var delegate: LoginViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         myMainView?.signInAction = signInPressed
-        
     }
     
     override func loadView() {
@@ -58,7 +64,7 @@ extension LoginViewController {
         
         if username == UserData.userData.userLogin && password == UserData.userData.userPassword {
             myMainView?.signInButton.configuration?.showsActivityIndicator = true
-            //delegate?.didLogin()
+            delegate?.didLogin()
             myMainView?.errorMessageLabel.text = ""
         } else {
             myMainView?.signInButton.configuration?.showsActivityIndicator = false

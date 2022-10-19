@@ -13,6 +13,7 @@
 		4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321428FD0FF10081CCD7 /* LoginViewController.swift */; };
 		4052321728FD10810081CCD7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4052321628FD10810081CCD7 /* LoginView.swift */; };
 		40E1940C28FFD1E300471660 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1940B28FFD1E300471660 /* UserData.swift */; };
+		40E1940E28FFD61900471660 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1940D28FFD61900471660 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4052321428FD0FF10081CCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4052321628FD10810081CCD7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		40E1940B28FFD1E300471660 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		40E1940D28FFD61900471660 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				4052321428FD0FF10081CCD7 /* LoginViewController.swift */,
+				40E1940D28FFD61900471660 /* TestViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40E1940E28FFD61900471660 /* TestViewController.swift in Sources */,
 				4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */,
 				4052321728FD10810081CCD7 /* LoginView.swift in Sources */,
 				40E1940C28FFD1E300471660 /* UserData.swift in Sources */,

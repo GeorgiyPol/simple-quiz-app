@@ -9,7 +9,7 @@ import UIKit
 
 class LoginView: UIView {
     
-    var signInAction: (() -> Void?)?
+    var signInAction: (() -> Void)?
     
     private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
@@ -163,6 +163,8 @@ class LoginView: UIView {
         backgroundColor = UIColor.tealColor
     }
 }
+
+// MARK: - Settings -
 
 extension UIColor {
     
