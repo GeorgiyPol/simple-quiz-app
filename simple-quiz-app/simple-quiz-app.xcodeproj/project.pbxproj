@@ -15,6 +15,8 @@
 		40E1940C28FFD1E300471660 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1940B28FFD1E300471660 /* UserData.swift */; };
 		40E1940E28FFD61900471660 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E1940D28FFD61900471660 /* TestViewController.swift */; };
 		40F87502290165B800947E8F /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F87501290165B800947E8F /* OnboardingModel.swift */; };
+		40F87506290167DE00947E8F /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F87505290167DE00947E8F /* OnboardingController.swift */; };
+		40F875082901713200947E8F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F875072901713200947E8F /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		40E1940B28FFD1E300471660 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		40E1940D28FFD61900471660 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		40F87501290165B800947E8F /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		40F87505290167DE00947E8F /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		40F875072901713200947E8F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			children = (
 				4052321428FD0FF10081CCD7 /* LoginViewController.swift */,
 				40E1940D28FFD61900471660 /* TestViewController.swift */,
+				40F87505290167DE00947E8F /* OnboardingController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				4052321628FD10810081CCD7 /* LoginView.swift */,
+				40F875072901713200947E8F /* OnboardingView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -178,7 +184,9 @@
 				40E1940E28FFD61900471660 /* TestViewController.swift in Sources */,
 				4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */,
 				40F87502290165B800947E8F /* OnboardingModel.swift in Sources */,
+				40F87506290167DE00947E8F /* OnboardingController.swift in Sources */,
 				4052321728FD10810081CCD7 /* LoginView.swift in Sources */,
+				40F875082901713200947E8F /* OnboardingView.swift in Sources */,
 				40E1940C28FFD1E300471660 /* UserData.swift in Sources */,
 				405231FD28FD0CE60081CCD7 /* AppDelegate.swift in Sources */,
 			);
