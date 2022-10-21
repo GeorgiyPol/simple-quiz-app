@@ -24,7 +24,7 @@ final class OnboardingModel {
                 index: 0,
                 title: "Изучай материалы и выполняй задания",
                 description: "Обучения iOS разработке требует много практики, для этого нужно внимательно изучать материалы и выполнять все задания из них.",
-                imageName: "code"),
+                imageName: "person"),
             
             Onboarding(
                 index: 1,
