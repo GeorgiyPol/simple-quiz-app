@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4003547A29027B1C003AE260 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4003547929027B1C003AE260 /* Question.swift */; };
+		4003547C29027B3E003AE260 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4003547B29027B3E003AE260 /* QuizBrain.swift */; };
 		405231FD28FD0CE60081CCD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405231FC28FD0CE60081CCD7 /* AppDelegate.swift */; };
 		4052320628FD0CE70081CCD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4052320528FD0CE70081CCD7 /* Assets.xcassets */; };
 		4052320928FD0CE70081CCD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4052320728FD0CE70081CCD7 /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		4003547929027B1C003AE260 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		4003547B29027B3E003AE260 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 		405231F928FD0CE60081CCD7 /* simple-quiz-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-quiz-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405231FC28FD0CE60081CCD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4052320528FD0CE70081CCD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				40E1940B28FFD1E300471660 /* UserData.swift */,
 				40F87501290165B800947E8F /* OnboardingModel.swift */,
 				4003547929027B1C003AE260 /* Question.swift */,
+				4003547B29027B3E003AE260 /* QuizBrain.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				4052321528FD0FF10081CCD7 /* LoginViewController.swift in Sources */,
 				40F87502290165B800947E8F /* OnboardingModel.swift in Sources */,
 				40F87506290167DE00947E8F /* OnboardingController.swift in Sources */,
+				4003547C29027B3E003AE260 /* QuizBrain.swift in Sources */,
 				4003547A29027B1C003AE260 /* Question.swift in Sources */,
 				4052321728FD10810081CCD7 /* LoginView.swift in Sources */,
 				40F875082901713200947E8F /* OnboardingView.swift in Sources */,
