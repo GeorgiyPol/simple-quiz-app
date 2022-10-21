@@ -28,7 +28,7 @@ final class OnboardingView: UIView {
         didSet {
             let isLastPage = models.count - 1 > selectedIndex
             buttonView.setTitle(isLastPage ? Strings.nextButtonTitle : Strings.startButtonTitle, for: .normal)
-            buttonView.backgroundColor = isLastPage ? .systemBlue : .systemGreen
+            buttonView.backgroundColor = isLastPage ? .blackColor : .systemGreen
         }
     }
     
@@ -70,9 +70,8 @@ final class OnboardingView: UIView {
     }()
     
     private lazy var buttonView: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
-        button.tintColor = .white
         button.layer.cornerRadius = Metric.buttonHeight / 2
         button.addTarget(self, action: #selector(buttonTappedAction(_:)), for: .touchUpInside)
         return button
@@ -140,6 +139,7 @@ extension OnboardingView {
 //MARK: - UICollectionViewDataSource
 
 extension OnboardingView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
     }
@@ -170,6 +170,7 @@ extension OnboardingView: UICollectionViewDelegateFlowLayout {
 //MARK: - UIButton Action
 
 extension OnboardingView {
+    
     @objc private func buttonTappedAction(_ sender: Any) {
 
         if models.count - 1 > selectedIndex {

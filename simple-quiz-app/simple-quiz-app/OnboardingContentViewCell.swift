@@ -16,7 +16,7 @@ final class OnboardingContentViewCell: UICollectionViewCell {
 
     func configureView(with model: Onboarding) {
         titleLabel.text = model.title
-        imageView.image = UIImage.init(systemName: model.imageName) //UIImage.gifImageWithName(model.imageName)
+        imageView.image = UIImage.init(named: model.imageName)
         descriptionLabel.text = model.description
     }
 
@@ -33,16 +33,17 @@ final class OnboardingContentViewCell: UICollectionViewCell {
 
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
+        view.layer.cornerRadius = 30
         return view
     }()
-
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.font = .boldSystemFont(ofSize: 20)
-        label.textColor = .black
+        label.textColor = UIColor.blackColor
         return label
     }()
 
@@ -66,7 +67,7 @@ final class OnboardingContentViewCell: UICollectionViewCell {
     }
 
     private func commonInit() {
-        backgroundColor = .white
+        backgroundColor = UIColor.tealColor
         setupHierarchy()
         setupLayout()
     }
@@ -84,6 +85,8 @@ final class OnboardingContentViewCell: UICollectionViewCell {
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40).isActive = true
 
         imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35).isActive = true
+        imageView.clipsToBounds = true
+        
     }
 
 }
