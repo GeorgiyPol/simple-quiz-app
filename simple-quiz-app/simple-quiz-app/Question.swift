@@ -2,7 +2,7 @@
 //  Question.swift
 //  simple-quiz-app
 //
-//  Created by Georgiy on 17.10.2022.
+//  Created by Georgiy on 21.10.2022.
 //
 
 import Foundation
