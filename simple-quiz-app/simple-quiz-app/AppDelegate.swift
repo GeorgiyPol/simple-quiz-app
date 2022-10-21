@@ -14,13 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let testVC = TestViewController()
     let loginVC = LoginViewController()
+    let onboardingVC = OnboardingController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         LoginViewController.delegate = self
-        window?.rootViewController = LoginViewController()
+        window?.rootViewController = loginVC
         
         return true
     }
@@ -49,6 +50,6 @@ extension AppDelegate: LoginViewControllerDelegate {
     
     func didLogin() {
         
-        setRootViewController(testVC)
+        setRootViewController(onboardingVC)
     }
 }
