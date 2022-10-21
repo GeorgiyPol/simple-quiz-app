@@ -15,13 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let testVC = TestViewController()
     let loginVC = LoginViewController()
     let onboardingVC = OnboardingController()
+    let quizVC = QuizController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         LoginViewController.delegate = self
-        window?.rootViewController = loginVC
+        window?.rootViewController = quizVC //loginVC
         
         return true
     }
